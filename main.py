@@ -1,16 +1,21 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from aiogram import Dispatcher, Bot, executor
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+API ='7959621984:AAEUZKYA1JTdL2FL3VVlfGPj6aF0qv9jeRc'
+BOT_NAME = 'Tetris Bot'
+
+bot = Bot(token=API)
+dp = Dispatcher(bot, storage=MemoryStorage())
+
+@dp.message_handler(commands=['start'])
+async def start(message):
+    print('Привет! Я бот помогающий твоему здоровью.')
+
+@dp.message_handler()
+async def all_massages(message):
+    print('Введите команду /start, чтобы начать общение.')
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    executor.start_polling(dp, skip_updates=True)
