@@ -2,7 +2,7 @@ from aiogram import Dispatcher, Bot, executor
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 
-API ='7959621984:AAEUZKYA1JTdL2FL3VVlfGPj6aF0qv9jeRc'
+API =''
 BOT_NAME = 'Tetris Bot'
 
 bot = Bot(token=API)
